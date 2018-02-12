@@ -1,0 +1,40 @@
+logging: 
+  level: 
+    springfox: TRACE
+    org: 
+      springframework: DEBUG
+      hibernate: DEBUG
+
+server:
+  port : ${PORT:8080}
+  contextPath: /jukephone
+
+management: 
+  port: ${PORT_MANAGEMENT:9080}
+  security: 
+      enabled: false
+spring:
+  application:
+    name : ${appName:juke-back}
+  jpa:
+    database: h2
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    
+
+  datasource: 
+    #url: jdbc:h2:~/JUKE_BACK;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:JukePhoneDB;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: mse
+    password:
+    driver-class-name: org.h2.Driver
+    platform: h2
+ 
+  # enable H2 web console and set url for web console
+  # http://localhost:8080/console
+  h2:
+    console:
+      enabled: true
+      path: /console
+      
